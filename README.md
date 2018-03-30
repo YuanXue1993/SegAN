@@ -1,6 +1,6 @@
 # SegAN: Semantic Segmentation with Adversarial Learning
 
-Pytorch implementation for the basic ideas from in the paper [SegAN: Adversarial Network with Multi-scale L1 Loss for Medical Image Segmentation](https://arxiv.org/pdf/1706.01805.pdf) by Yuan Xue, Tao Xu, Han Zhang, L. Rodney Long, Xiaolei Huang.
+Pytorch implementation for the basic ideas from the paper [SegAN: Adversarial Network with Multi-scale L1 Loss for Medical Image Segmentation](https://arxiv.org/pdf/1706.01805.pdf) by Yuan Xue, Tao Xu, Han Zhang, L. Rodney Long, Xiaolei Huang.
 
 The data and architecture are mainly from the paper [Adversarial Learning with Multi-Scale Loss for Skin Lesion Segmentation](http://www.cse.lehigh.edu/~huang/ISBI_Paper2018.pdf) by Yuan Xue, Tao Xu, Xiaolei Huang.
 
