@@ -1,8 +1,8 @@
 # SegAN: Semantic Segmentation with Adversarial Learning
 
-Pytorch implementation for some results in the paper [SegAN: Adversarial Network with Multi-scale L1 Loss for Medical Image Segmentation](https://arxiv.org/pdf/1706.01805.pdf) by Yuan Xue, Tao Xu, Han Zhang, L. Rodney Long, Xiaolei Huang.
+Pytorch implementation for the basic ideas from in the paper [SegAN: Adversarial Network with Multi-scale L1 Loss for Medical Image Segmentation](https://arxiv.org/pdf/1706.01805.pdf) by Yuan Xue, Tao Xu, Han Zhang, L. Rodney Long, Xiaolei Huang.
 
-The data and structure are mainly from the paper [Adversarial Learning with Multi-Scale Loss for Skin Lesion Segmentation](examples/Paper.pdf) by Yuan Xue, Tao Xu, Xiaolei Huang.
+The data and architecture are mainly from the paper [Adversarial Learning with Multi-Scale Loss for Skin Lesion Segmentation](examples/Paper.pdf) by Yuan Xue, Tao Xu, Xiaolei Huang.
 
 <img src="examples/framework.jpg" width="880px" height="600px"/>
 
@@ -17,6 +17,7 @@ python 2.7
 **Data**
 
 - Download the dataset for [ISBI International Skin Imaging Collaboration (ISIC) 2017 challenge, Part I Lesion Segmentation](https://challenge.kitware.com/#challenge/n/ISIC_2017%3A_Skin_Lesion_Analysis_Towards_Melanoma_Detection) and save data folders under the same directory of the code.
+- If you want to play with your own dataset, remember to change the folder name accordingly in the LoadData.py.
 
 
 
