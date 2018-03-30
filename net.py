@@ -74,7 +74,7 @@ class ResidualBlock(nn.Module):
         out = x + residual
         return out
 
-class ResidualBlock_D(nn.Module):
+class ResidualBlock_C(nn.Module):
     def __init__(self, indim):
         super(ResidualBlock_D, self).__init__()
         self.conv1 = nn.Conv2d(indim, indim*2, kernel_size=1, bias=False)
@@ -110,7 +110,7 @@ class ResidualBlock_D(nn.Module):
 
 class NetS(nn.Module):
     def __init__(self, ngpu):
-        super(NetG, self).__init__()
+        super(NetS, self).__init__()
         self.ngpu = ngpu
         self.convblock1 = nn.Sequential(
             # input is (channel_dim) x 128 x 128
@@ -182,7 +182,7 @@ class NetS(nn.Module):
         )
 
 
-        self.deconvblock0 = nn.Sequential(
+        self.deconvblock1 = nn.Sequential(
             # state size. (ngf*8) x 1 x 1
             nn.ConvTranspose2d(ndf * 8, ndf * 32, kernel_size=1, bias=False),
             nn.BatchNorm2d(ndf * 32),
@@ -335,9 +335,9 @@ class NetS(nn.Module):
 
 
 
-class NetD(nn.Module):
+class NetC(nn.Module):
     def __init__(self, ngpu):
-        super(NetD, self).__init__()
+        super(NetC, self).__init__()
         self.ngpu = ngpu
         self.convblock1 = nn.Sequential(
             # input is (channel_dim) x 128 x 128
