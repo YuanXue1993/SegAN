@@ -26,7 +26,7 @@ python 2.7
   	For now we only support training with one GPU.
   	The training images will be save in the ~/outputs folder.
   - The training code also includes the validation part, we will report validation results every 10 epochs, validation images will also be saved in the ~/outputs folder.
-- If you want to try your own datasets, you can just do whatever preprocess you want for your data to make them have similar format as this skin lesion segmentation dataset and put them in a folder similar to ~/ISIC-2017_Training_Data. You can run the model directly for a natural image dataset; For 3D medical data such as brain MRI scans, you need to extract 2D slices from the original data first. If your dataset has one than one class of label, you can run multiple S1-1C models as we described in the SegAN paper.
+- If you want to try your own datasets, you can just do whatever preprocess you want for your data to make them have similar format as this skin lesion segmentation dataset and put them in a folder similar to ~/ISIC-2017_Training_Data. You can run the model directly for a natural image dataset; For 3D medical data such as brain MRI scans, you need to extract 2D slices from the original data first. If your dataset has one than one class of label, you can run multiple S1-1C models as we described in the [SegAN paper](https://arxiv.org/pdf/1706.01805.pdf).
 
 
 Example results of our SegAN (right) with corresponding input (left) and ground truth (middle) on ISIC 2017 test set:
