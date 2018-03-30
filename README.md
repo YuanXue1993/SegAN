@@ -50,5 +50,5 @@ If you find SegAN useful in your research, please consider citing:
 
 **References**
 
-- Some of the code for Global Convolutional Network are borrowed from Zijun Deng's excellent [code](https://github.com/ZijunDeng/pytorch-semantic-segmentation)
+- Some of the code for Global Convolutional Block are borrowed from Zijun Deng's excellent [code](https://github.com/ZijunDeng/pytorch-semantic-segmentation)
 - We thank the Pytorch team and some of our image prepocessing code are borrowed from the pytorch official examples
