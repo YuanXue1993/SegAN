@@ -74,7 +74,7 @@ class ResidualBlock(nn.Module):
         out = x + residual
         return out
 
-class ResidualBlock_C(nn.Module):
+class ResidualBlock_D(nn.Module):
     def __init__(self, indim):
         super(ResidualBlock_D, self).__init__()
         self.conv1 = nn.Conv2d(indim, indim*2, kernel_size=1, bias=False)
@@ -456,8 +456,7 @@ class NetC(nn.Module):
             output = torch.cat((input.view(batchsize,-1),1*out1.view(batchsize,-1),
                                 2*out2.view(batchsize,-1),2*out3.view(batchsize,-1),
                                 2*out4.view(batchsize,-1),2*out5.view(batchsize,-1),
-                                4*out6.view(batchsize,-1))#,32*out7.view(batchsize,-1))
-                                ,1)
+                                4*out6.view(batchsize,-1)),1)
         else:
             print('For now we only support one GPU')
 
