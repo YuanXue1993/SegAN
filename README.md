@@ -3,7 +3,7 @@
 Pytorch implementation for some results in the paper [SegAN: Adversarial Network with Multi-scale L1 Loss for Medical Image Segmentation](https://arxiv.org/pdf/1706.01805.pdf) by Yuan Xue, Tao Xu, Han Zhang, L. Rodney Long, Xiaolei Huang.
 and the data and structure are mainly from the paper Adversarial Learning with Multi-Scale Loss for Skin Lesion Segmentation by Yuan Xue, Tao Xu, Xiaolei Huang.
 
-<img src="examples/framework.jpg" width="850px" height="370px"/>
+<img src="examples/framework.jpg" width="850px" height="500px"/>
 
 
 ### Dependencies
