@@ -18,9 +18,9 @@ from LoadData import Dataset, loader, Dataset_val
 
 # Training settings
 parser = argparse.ArgumentParser(description='Example')
-parser.add_argument('--batchSize', type=int, default=50, help='training batch size')
+parser.add_argument('--batchSize', type=int, default=36, help='training batch size')
 parser.add_argument('--niter', type=int, default=10000, help='number of epochs to train for')
-parser.add_argument('--lr', type=float, default=0.02, help='Learning Rate. Default=0.02')
+parser.add_argument('--lr', type=float, default=0.0002, help='Learning Rate. Default=0.02')
 parser.add_argument('--ngpu', type=int, default=1, help='number of GPUs to use, for now it only supports one GPU')
 parser.add_argument('--beta1', type=float, default=0.5, help='beta1 for adam. default=0.5')
 parser.add_argument('--decay', type=float, default=0.5, help='Learning rate decay. default=0.5')
@@ -48,12 +48,11 @@ def weights_init(m):
 
 
 def dice_loss(input,target):
-    probs = input
-    num=probs*target
+    num=input*target
     num=torch.sum(num,dim=2)
     num=torch.sum(num,dim=2)
 
-    den1=probs*probs
+    den1=input*input
     den1=torch.sum(den1,dim=2)
     den1=torch.sum(den1,dim=2)
 
@@ -80,10 +79,10 @@ if cuda:
 cudnn.benchmark = True
 print('===> Building model')
 NetS = NetS(ngpu = opt.ngpu)
-NetS.apply(weights_init)
+# NetS.apply(weights_init)
 print(NetS)
-NetC = NetC(ngpu = opt.ngpu, batchsize = opt.batchSize)
-NetC.apply(weights_init)
+NetC = NetC(ngpu = opt.ngpu)
+# NetC.apply(weights_init)
 print(NetC)
 
 if cuda:
@@ -99,7 +98,7 @@ optimizerD = optim.Adam(NetC.parameters(), lr=lr, betas=(opt.beta1, 0.999))
 # load training data
 dataloader = loader(Dataset('./'),opt.batchSize)
 # load testing data
-dataloader_val = loader(Dataset_val('./'), 50)
+dataloader_val = loader(Dataset_val('./'), 36)
 
 
 max_iou = 0
@@ -207,13 +206,14 @@ for epoch in range(opt.niter):
         vutils.save_image(data[1],
                 '%s/label_val.png' % opt.outpath,
                 normalize=True)
+        pred = pred.type(torch.FloatTensor)
         vutils.save_image(pred.data,
                 '%s/result_val.png' % opt.outpath,
                 normalize=True)
     if epoch % 25 == 0:
         lr = lr*decay
-        if lr <= 0.00001:
-            lr = 0.00001
+        if lr <= 0.00000001:
+            lr = 0.00000001
         print('Learning Rate: {:.6f}'.format(lr))
         # print('K: {:.4f}'.format(k))
         print('Max mIoU: {:.4f}'.format(max_iou))
